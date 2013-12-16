@@ -9,6 +9,7 @@ app.controller('repoController', function($scope, $http, $routeParams, retriever
 			if(data.content){
 				// magic base64 to utf8 handling
 				$scope.content = UTF8ArrToStr(base64DecToArr(data.content.replace(/[\r\n\s]/g, '')));
+				$scope.repo = null;
 			}
 		});
 	};
