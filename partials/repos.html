@@ -1,0 +1,5 @@
+<div ng-controller="userController" ng-init="loadUserRepos()">
+	<div ng-repeat="repo in repos">
+		<a href="#/{{repo.full_name}}">{{repo.name}}</a>
+	</div>
+</div>

@@ -1,0 +1,6 @@
+<div ng-controller="repoController" ng-init="loadRepoPath()">
+	<div ng-repeat="item in repo">
+		<a href="#/{{route.userId}}/{{route.repoId}}/{{item.name}}">{{item.type}} {{item.name}}</a>
+	</div>
+	<pre>{{content}}</pre>
+</div>
