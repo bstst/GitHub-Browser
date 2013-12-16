@@ -1,6 +1,9 @@
 <div ng-controller="repoController" ng-init="loadRepoPath()">
-	<div ng-repeat="item in repo">
-		<a href="#/{{route.userId}}/{{route.repoId}}/{{item.name}}">{{item.type}} {{item.name}}</a>
-	</div>
+	<ul ng-repeat="item in repo | filter:{type:'dir'}" class="dirs">
+		<li><a href="#/{{route.userId}}/{{route.repoId}}/{{item.name}}">{{item.name}}</a></li>
+	</ul>
+	<ul ng-repeat="item in repo | filter:{type:'file'}" class="files">
+		<li><a href="#/{{route.userId}}/{{route.repoId}}/{{item.name}}">{{item.name}}</a></li>
+	</ul>
 	<pre>{{content}}</pre>
 </div>

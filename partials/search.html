@@ -1,12 +1,13 @@
 <div ng-controller="mainController">
 	<input type="text" name="search" value="" ng-model="search" />
+	
 	<button ng-click="findUsers()">Find users</button>
 	<button ng-click="findRepos()">Find repos</button>
 
-	<div ng-repeat="user in users">
-		<a href="#/{{user.login}}">{{user.login}}</a>
-	</div>
-	<div ng-repeat="repo in repos">
-		<a href="#/{{repo.full_name}}">{{repo.name}}</a>
-	</div>
+	<ul ng-repeat="user in users">
+		<li><a href="#/{{user.login}}">{{user.login}}</a></li>
+	</ul>
+	<ul ng-repeat="repo in repos">
+		<li><a href="#/{{repo.full_name}}">{{repo.name}}</a></li>
+	</ul>
 </div>
