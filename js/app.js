@@ -26,7 +26,8 @@ app.factory('retriever', function($http, $q){
 	var base = 'https://api.github.com/';
 	var request = function(path, query){
 		var defer = $q.defer();
-		$http.jsonp((proxy ? proxy + encodeURIComponent(base + path) : base + path) + encodeURIComponent(query || '') + '&callback=JSON_CALLBACK').success(function(data){
+        var url = (proxy ? proxy + encodeURIComponent(base + path) : base + path) + encodeURIComponent(query || '');
+		$http.get(url, {cache: true}).success(function(data){
 			defer.resolve(data);
 		}).error(function(data){
 			defer.reject('error: ' + data);
